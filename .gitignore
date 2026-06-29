@@ -1,1 +1,7 @@
+# Folders
 .venv/
+
+# Files
+README.md
+uv.lock
+.python-version

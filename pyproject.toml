@@ -1,0 +1,14 @@
+[project]
+name = "api-factory"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.138.1",
+    "pydantic>=2.13.4",
+    "ruff>=0.15.20",
+    "sqlalchemy>=2.0.51",
+    "ty>=0.0.55",
+    "uvicorn>=0.49.0",
+]
