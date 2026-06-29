@@ -1,7 +1,6 @@
 # Folders
 .venv/
+.ruff_cache/
 
 # Files
 README.md
-uv.lock
-.python-version
