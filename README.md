@@ -5,9 +5,9 @@
  Este guia e template por enquanto só dizem respeito a ==FastAPI com SQLAlchemy==.
 
  Estaremos usando o gerenciador de pacotes uv quando possível, assim como as outras ferramentas da Astral, como o Ruff e o Ty.
- Use a seção [pré-requisitos](#prerequisites) para se referir a instalação das ferramentas necessárias.
+ Use a seção [pré-requisitos](#prerequisitos) para se referir a instalação das ferramentas necessárias.
 
-### Prerequisitos e como obte-los {#prerequisites}
+### Prerequisitos
 
  Se certifique que tenha o Python instalado em sua máquina. Baixe a versão mais nova no link abaixo:
 
@@ -31,7 +31,7 @@
  uv --version
  ```
 
- Após ter realizado todos os passos acima você poder seguir em frente com o [setup padrão](#fastapi)
+ Após ter realizado todos os passos acima você poder seguir em frente com o [setup padrão](#setup-padrão-fastapi-com-sqlalchemy)
 
 ### Opcional
 
@@ -47,7 +47,7 @@
  uv tool install ty@latest
  ```
 
-### Setup padrão: FastAPI com SQLAlchemy {#fastapi}
+### Setup padrão: FastAPI com SQLAlchemy
 
  Clone este repositório no local que desejar.
 
