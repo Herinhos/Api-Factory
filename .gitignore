@@ -1,3 +1,5 @@
 # Folders
 .venv/
 .ruff_cache/
+.idea/
+.vscode/
