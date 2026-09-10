@@ -1,0 +1,44 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  quality-and-test:
+    name: Lint, Format, Type-Check & Test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [ "3.12", "3.13", "3.14" ]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v9
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+
+      - name: Install Dependencies
+        run: uv sync --locked --all-extras --dev
+
+      - name: Code Formatting Check (Ruff)
+        run: uv run ruff format --check .
+
+      - name: Static Analysis & Linting (Ruff)
+        run: uv run ruff check .
+
+      - name: Type Checking (ty)
+        run: uv run ty check .
+
+      - name: Run Tests (pytest)
+        run: uv run pytest -v
