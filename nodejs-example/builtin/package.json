@@ -1,10 +1,10 @@
 {
-  "name": "nodejs-example",
+  "name": "nodejs-example-builtin",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
