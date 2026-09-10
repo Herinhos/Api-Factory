@@ -521,12 +521,10 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
-    { name = "ruff" },
-    { name = "ty" },
-]
-test = [
     { name = "pytest" },
     { name = "requests" },
+    { name = "ruff" },
+    { name = "ty" },
 ]
 
 [package.metadata]
@@ -538,12 +536,10 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "ruff", specifier = ">=0.16.0" },
-    { name = "ty", specifier = ">=0.0.64" },
-]
-test = [
     { name = "pytest", specifier = ">=9.1.1" },
     { name = "requests", specifier = ">=2.34.2" },
+    { name = "ruff", specifier = ">=0.16.0" },
+    { name = "ty", specifier = ">=0.0.64" },
 ]
 
 [[package]]
