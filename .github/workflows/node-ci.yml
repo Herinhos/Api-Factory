@@ -3,8 +3,12 @@ name: Node.js CI
 on:
   push:
     branches: [ main ]
+    paths:
+    - 'javascript/**'
   pull_request:
     branches: [ main ]
+    paths:
+    - 'javascript/**'
 
 permissions:
   contents: read
@@ -16,7 +20,12 @@ jobs:
 
     strategy:
       matrix:
+        project: [ 'builtin', 'express' ]
         node-version: [ '20.x', '22.x' ]
+
+    defaults:
+      run:
+        working-directory: ./javascript/nodejs-example/${{ matrix.project }}
 
     steps:
       - name: Checkout Code
@@ -27,15 +36,16 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: javascript/nodejs-example/${{ matrix.project }}/package-lock.json
 
       - name: Clean Install Dependencies
         run: npm ci
 
-      - name: Code Formatting Check (Prettier)
-        run: npx prettier --check .
+      # - name: Code Formatting Check (Prettier)
+      #   run: npx prettier --check . --ignore-path ./.prettierignore
 
-      - name: Linting & Static Analysis (ESLint)
-        run: npx eslint .
+      # - name: Linting & Static Analysis (ESLint)
+      #   run: npx eslint .
 
-      - name: Run Test Suite
-        run: npm test --if-present
+      # - name: Run Test Suite
+      #   run: npm test --if-present

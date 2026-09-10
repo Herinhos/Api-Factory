@@ -3,27 +3,36 @@ name: Python CI
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'python/**'
   pull_request:
     branches: [ main ]
+    paths:
+      - 'python/**'
 
 permissions:
   contents: read
 
 jobs:
   quality-and-test:
-    name: Lint, Format, Type-Check & Test
+    name: Lint, Format, Type-Check & Test on ${{ matrix.project }} (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
+        project: [ 'fastapi-example', 'robyn-example' ]
         python-version: [ "3.12", "3.13", "3.14" ]
+
+    defaults:
+      run:
+        working-directory: ./python/${{ matrix.project }}
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v7
 
       - name: Setup uv
-        uses: astral-sh/setup-uv@v9
+        uses: astral-sh/setup-uv@v10.0.0
         with:
           python-version: ${{ matrix.python-version }}
           enable-cache: true
