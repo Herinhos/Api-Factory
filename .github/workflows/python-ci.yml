@@ -28,7 +28,7 @@ jobs:
           - project: 'fastapi-example'
             python-version: '3.14'
           - project: 'robyn-example'
-            python-version: '3.13'
+            python-version: '3.14'
 
     defaults:
       run:
