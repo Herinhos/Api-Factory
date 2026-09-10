@@ -4,10 +4,12 @@ from api.schemas import User
 
 app = Robyn(__file__)
 
+
 # Application Startup
 @app.startup_handler
 async def startup_handler():
     await User.create_table(if_not_exists=True)
+
 
 # Health Check and Greetings
 @app.get("/")
