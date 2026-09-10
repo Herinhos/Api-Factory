@@ -5,3 +5,6 @@
 .vscode/
 target/
 node_modules/
+
+# Files
+*.pyc
