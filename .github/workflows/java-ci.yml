@@ -5,10 +5,13 @@ on:
     branches: [ main ]
     paths:
       - 'java/**'
+      - '.github/workflows/java-ci.yml'
   pull_request:
     branches: [ main ]
     paths:
       - 'java/**'
+      - '.github/workflows/java-ci.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read

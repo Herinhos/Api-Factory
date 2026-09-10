@@ -4,11 +4,14 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'javascript/**'
+      - 'javascript/**'
+      - '.github/workflows/node-ci.yml'
   pull_request:
     branches: [ main ]
     paths:
-    - 'javascript/**'
+      - 'javascript/**'
+      - '.github/workflows/node-ci.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -21,7 +24,7 @@ jobs:
     strategy:
       matrix:
         project: [ 'builtin', 'express' ]
-        node-version: [ '20.x', '22.x' ]
+        node-version: [ '20.x', '22.x', '23.x', '24.x' ]
 
     defaults:
       run:
