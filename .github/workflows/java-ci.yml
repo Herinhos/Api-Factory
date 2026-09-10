@@ -37,4 +37,4 @@ jobs:
           cache: 'maven'
 
       - name: Run Maven Clean Verify
-        run: ./mvnw clean verify --batch-mode --no-transfer-progress
+        run: mvn clean verify --batch-mode --no-transfer-progress

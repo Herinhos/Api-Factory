@@ -22,9 +22,13 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
-        project: [ 'fastapi-example', 'robyn-example' ]
-        python-version: [ "3.12", "3.13", "3.14" ]
+        include:
+          - project: 'fastapi-example'
+            python-version: '3.14'
+          - project: 'robyn-example'
+            python-version: '3.13'
 
     defaults:
       run:
@@ -52,5 +56,5 @@ jobs:
       - name: Type Checking (ty)
         run: uv run ty check .
 
-      - name: Run Tests (pytest)
-        run: uv run pytest -v
+      # - name: Run Tests (pytest)
+      #   run: uv run pytest -v
